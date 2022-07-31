@@ -19,8 +19,8 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text("Welcome to Flutter"),
         ),
-      body: const Center(
-        child: Text("Hello World"),
+      body: Center(
+        child: Text(wordPair.asPascalCase),
       ),
       ),
     );
