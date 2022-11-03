@@ -33,7 +33,12 @@ class _RootPageState extends State<RootPage> {
       appBar: AppBar(
         title: const Text("Mushapp"),
       ),
-      floatingActionButton: FloatingActionButton(onPressed: (){},),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          debugPrint("Floating Action Button");
+        },
+        child: const Icon(Icons.add),
+      ),
     );
   }
 }
