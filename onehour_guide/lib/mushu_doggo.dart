@@ -8,6 +8,8 @@ class MushuBestPage extends StatefulWidget {
 }
 
 class _MushuBestPageState extends State<MushuBestPage> {
+  bool isSwitch = false;
+  bool? isCheckbox = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,46 +41,69 @@ class _MushuBestPageState extends State<MushuBestPage> {
               child: Text(
                 'This is a mush.',
                 style: TextStyle(
-                    color: Colors.white,
+                  color: Colors.white,
                   //fontWeight: FontWeight.bold,
                 ),
               ),
             ),
           ),
           ElevatedButton(
-              onPressed: (){
-                debugPrint('Mush button pressed');
-              },
-              child: const Text('Mush button'),),
+            style: ElevatedButton.styleFrom(
+              primary: isSwitch ? Colors.blue : Colors.pink,
+            ),
+            onPressed: () {
+              debugPrint('Mush button pressed');
+            },
+            child: const Text('Mush button'),
+          ),
           OutlinedButton(
-            onPressed: (){
+            onPressed: () {
               debugPrint('Outlined button pressed');
             },
-            child: const Text('Outlined mush'),),
+            child: const Text('Outlined mush'),
+          ),
           TextButton(
-            onPressed: (){
-              debugPrint('Text button');
-            },
-            child: const Text('Text'),),
+              onPressed: () {
+                debugPrint('Text button');
+              },
+              child: const Text(
+                'The Mushu is a rare being, only a few have been blessed by the Mush.',
+                style: TextStyle(color: Colors.white),
+              )),
           GestureDetector(
-            onTap: (){
+            behavior: HitTestBehavior.opaque,
+            onTap: () {
               debugPrint('Testing gestures');
             },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: const [
-              Icon(
-                Icons.traffic,
-                color: Colors.blue,
-              ),
-              Text('Row widget'),
-              Icon(
-                Icons.museum,
-                color: Colors.blue,
-              ),
-            ],
+                Icon(
+                  Icons.traffic,
+                  color:  Colors.blue,
+                ),
+                Text('Blue mush?'),
+                Icon(
+                  Icons.museum,
+                  color: Colors.blue,
+                ),
+              ],
+            ),
           ),
-          ),
+          Switch(
+              value: isSwitch,
+              onChanged: (bool newBool) {
+                setState(() {
+                  isSwitch = newBool;
+                });
+              }),
+          Checkbox(
+              value: isCheckbox,
+              onChanged: (bool? newBool){
+                setState(() {
+                  isCheckbox = newBool;
+                });
+              }),
         ],
       ),
     );
