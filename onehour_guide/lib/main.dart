@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:onehour_guide/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,6 +35,7 @@ class _RootPageState extends State<RootPage> {
       appBar: AppBar(
         title: const Text("Mushapp"),
       ),
+      body: const HomePage(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           debugPrint("Mush added.");
