@@ -50,6 +50,35 @@ class _MushuBestPageState extends State<MushuBestPage> {
                 debugPrint('Mush button pressed');
               },
               child: const Text('Mush button'),),
+          OutlinedButton(
+            onPressed: (){
+              debugPrint('Outlined button pressed');
+            },
+            child: const Text('Outlined mush'),),
+          TextButton(
+            onPressed: (){
+              debugPrint('Text button');
+            },
+            child: const Text('Text'),),
+          GestureDetector(
+            onTap: (){
+              debugPrint('Testing gestures');
+            },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: const [
+              Icon(
+                Icons.traffic,
+                color: Colors.blue,
+              ),
+              Text('Row widget'),
+              Icon(
+                Icons.museum,
+                color: Colors.blue,
+              ),
+            ],
+          ),
+          ),
         ],
       ),
     );
