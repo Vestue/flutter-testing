@@ -105,9 +105,10 @@ class _MushuBestPageState extends State<MushuBestPage> {
                     isCheckbox = newBool;
                   });
                 }),
-            Image.network(
+            /*Image.network(
                 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.trustedreviews.com%2Fwp-content%2Fuploads%2Fsites%2F54%2F2021%2F02%2FRickrolling-in-4K-1024x662.jpg&f=1&nofb=1&ipt=c77415402d52b12c7190a17a0afd1d810e37cdc279e01ba1f2ace596088bb77b&ipo=images'
-            )
+            )*/
+            Image.asset('images/anothermush2.png'),
           ],
         ),
       ),
