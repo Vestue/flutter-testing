@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:onehour_guide/home_page.dart';
+import 'package:onehour_guide/profile_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,13 +30,15 @@ class RootPage extends StatefulWidget {
 
 class _RootPageState extends State<RootPage> {
   int currentPage = 0;
+  List<Widget> pages = const [HomePage(), ProfilePage()];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Mushapp"),
       ),
-      body: const HomePage(),
+      body: pages[currentPage],
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           debugPrint("Mush added.");
@@ -47,11 +50,11 @@ class _RootPageState extends State<RootPage> {
           NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
           NavigationDestination(icon: Icon(Icons.person), label: 'Profile'),
         ],
-        onDestinationSelected: (int index){
+        onDestinationSelected: (int index) {
           setState(() {
             currentPage = index;
           });
-        currentPage = index;
+          currentPage = index;
         },
         selectedIndex: currentPage,
       ),

@@ -10,19 +10,29 @@ class MushuBestPage extends StatefulWidget {
 class _MushuBestPageState extends State<MushuBestPage> {
   bool isSwitch = false;
   bool? isCheckbox = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Mushu is loved'),
-        automaticallyImplyLeading: false,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-          icon: const Icon(Icons.arrow_back),
-        ),
-      ),
+          title: const Text('Mushu is loved'),
+          automaticallyImplyLeading: false,
+          leading: IconButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            icon: const Icon(Icons.arrow_back),
+          ),
+          actions: [
+            IconButton(
+              onPressed: () {
+                debugPrint('Actions');
+              },
+              icon: const Icon(
+                Icons.info_outline,
+              ),
+            )
+          ]),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -69,7 +79,7 @@ class _MushuBestPageState extends State<MushuBestPage> {
                 },
                 child: const Text(
                   'The Mushu is a rare being, only a few have been blessed by the Mush.',
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: Colors.black),
                 )),
             GestureDetector(
               behavior: HitTestBehavior.opaque,
