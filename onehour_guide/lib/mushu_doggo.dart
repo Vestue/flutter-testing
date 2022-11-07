@@ -50,7 +50,7 @@ class _MushuBestPageState extends State<MushuBestPage> {
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                primary: isSwitch ? Colors.blue : Colors.pink,
+                backgroundColor: isSwitch ? Colors.blue : Colors.pink,
               ),
               onPressed: () {
                 debugPrint('Mush button pressed');
