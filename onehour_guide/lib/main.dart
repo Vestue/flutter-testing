@@ -7,26 +7,26 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: const RootPage(),
+      home: RootPage(),
     );
   }
 }
 
 class RootPage extends StatefulWidget {
-  RootPage({Key? key}) : super(key: key);
+  const RootPage({Key? key}) : super(key: key);
   static int mushusAdded = 0;
 
-  final mushProvider = Provider((ref) {
+  static final mushProvider = Provider((ref) {
     return mushusAdded;
   });
 
@@ -36,10 +36,14 @@ class RootPage extends StatefulWidget {
 
 class _RootPageState extends State<RootPage> {
   int currentPage = 0;
-
-  List<Widget> pages = [const HomePage(), ProfilePage(RootPage.mushusAdded)];
+  List<Widget> pages = [];
 
   @override
+  void initState() {
+    pages = [const HomePage(), ProfilePage(RootPage.mushusAdded)];
+    super.initState();
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -51,12 +55,7 @@ class _RootPageState extends State<RootPage> {
           RootPage.mushusAdded += 1;
           debugPrint("Mush ${RootPage.mushusAdded} added.");
 
-          if (currentPage == 1) {
-            pages[currentPage].setState(() {
-              currentPage = 1;
-              debugPrint("Refreshing page");
-            });
-          }
+          if (currentPage == 1) {}
         },
         child: const Icon(Icons.add),
       ),

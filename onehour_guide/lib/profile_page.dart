@@ -2,18 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:onehour_guide/main.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class ProfilePage extends StatefulWidget {
+class ProfilePage extends ConsumerWidget {
   int mushusAdded;
 
   ProfilePage(this.mushusAdded, {Key? key}) : super(key: key);
 
   @override
-  State<ProfilePage> createState() => _ProfilePageState();
-}
-
-class _ProfilePageState extends State<ProfilePage> {
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return ListView.builder(
       itemCount: RootPage.mushusAdded,
       itemBuilder: (BuildContext context, int index) {
