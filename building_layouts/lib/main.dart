@@ -26,12 +26,12 @@ class MyApp extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets.only(bottom: 8),
                     child: const Text(
-                      'Some lake somewhere',
+                      'Some mush somewhere',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ),
                   Text(
-                    'Some country',
+                    'In some country',
                     style: TextStyle(color: Colors.grey[500]),
                   ),
                 ],
@@ -75,6 +75,13 @@ class MyApp extends StatelessWidget {
       ),
     );
 
+    Widget imageSection = Image.asset(
+      'images/top_pom.png',
+      width: 600,
+      height: 240,
+      fit: BoxFit.cover,
+    );
+
     return MaterialApp(
       title: 'Flutter layout demo',
       home: Scaffold(
@@ -83,6 +90,7 @@ class MyApp extends StatelessWidget {
         ),
         body: Column(
           children: [
+            imageSection,
             titleSection,
             buttonSection,
             textSection,
