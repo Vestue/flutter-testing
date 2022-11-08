@@ -1,18 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:onehour_guide/main.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class ProfilePage extends StatelessWidget {
-  const ProfilePage({Key? key}) : super(key: key);
-  final int itemCount = 20;
+class ProfilePage extends StatefulWidget {
+  int mushusAdded;
 
+  ProfilePage(this.mushusAdded, {Key? key}) : super(key: key);
+
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: itemCount,
+      itemCount: RootPage.mushusAdded,
       itemBuilder: (BuildContext context, int index) {
         return ListTile(
-          title: Text('Item ${(index + 1)}'),
-          leading: const Icon(Icons.person),
-          trailing: const Icon(Icons.select_all),
+          title: Text('Mush ${(index + 1)}'),
+          leading: (index.isEven)
+              ? Image.asset(
+                  'images/anothermush2.png',
+                  height: 40,
+                  width: 60,
+                )
+              : Image.asset(
+                  'images/cutemush.jpg',
+                  height: 40,
+                  width: 60,
+                ),
+          trailing: const Icon(Icons.person_add_alt_1_rounded),
           onTap: () {
             debugPrint("Item ${(index + 1)} selected");
           },
