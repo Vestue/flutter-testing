@@ -17,7 +17,7 @@ class MyApp extends ConsumerWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: RootPage(),
+      home: const RootPage(),
     );
   }
 }
@@ -44,6 +44,7 @@ class _RootPageState extends State<RootPage> {
     super.initState();
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -52,10 +53,10 @@ class _RootPageState extends State<RootPage> {
       body: pages[currentPage],
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          RootPage.mushusAdded += 1;
+          setState(() {
+            RootPage.mushusAdded += 1;
+          });
           debugPrint("Mush ${RootPage.mushusAdded} added.");
-
-          if (currentPage == 1) {}
         },
         child: const Icon(Icons.add),
       ),

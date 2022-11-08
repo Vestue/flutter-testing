@@ -3,9 +3,9 @@ import 'package:onehour_guide/main.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class ProfilePage extends ConsumerWidget {
-  int mushusAdded;
+  final int mushusAdded;
 
-  ProfilePage(this.mushusAdded, {Key? key}) : super(key: key);
+  const ProfilePage(this.mushusAdded, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
